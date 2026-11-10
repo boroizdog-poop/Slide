@@ -1,0 +1,47 @@
+﻿/* Readable section labels throughout the presentation. */
+.continuation .section-label,.dashboard .heading .eyebrow,.case-journal .case-eyebrow,.evaluation .evaluation-kicker,.marketing-heading>div>p{font-size:clamp(20px,1.9vw,28px);font-weight:700;line-height:1.5;letter-spacing:1px}
+.marketing-card .card-meta b{font-size:clamp(20px,1.8vw,26px);line-height:1.4}
+.cooperation .mode-number,.partnership-track li>span,.pressure-columns article>span{font-size:clamp(26px,2.4vw,36px);font-weight:700;line-height:1.25}
+.section-list summary b{font-size:21px;min-width:38px}
+.evaluation-limits .evaluation-list li:before{font-size:23px;line-height:1.5}
+.pressure-ribbon strong .pressure-count{font-size:inherit;letter-spacing:inherit;font-variant-numeric:tabular-nums}
+.market-number-band [data-count]{font-variant-numeric:tabular-nums}
+.market-redesign,.pressure-redesign,.ecosystem{position:relative;isolation:isolate}
+.market-new-heading{position:relative;padding-right:32px}
+.market-new-heading:after{content:'';position:absolute;right:0;top:0;width:9px;height:9px;border-radius:50%;background:#73afd6;box-shadow:0 17px 0 #bad8eb,0 34px 0 #e0edf6}
+.market-slope{position:relative;padding-top:12px}
+.market-slope:before{content:'';position:absolute;right:4px;top:0;width:72px;height:24px;background:radial-gradient(#aac9de 1.5px,transparent 1.5px) 0 0/9px 9px}
+.market-slope svg{overflow:visible}
+.pressure-new-heading{position:relative}
+.pressure-new-heading:before{content:'';display:block;width:55px;height:6px;background:#9ac3df;border-radius:10px;margin:0 auto 24px}
+.pressure-opportunity{border-radius:4px 28px 4px 4px}
+.ecosystem-new-heading{padding-left:24px;border-left:4px solid #a6cbe3}
+.partnership-ledger-title>span{width:58px;height:58px;display:grid;place-items:center;border-radius:50%;background:#edf5fb;flex:none}
+@media(max-width:700px){.continuation .section-label,.dashboard .heading .eyebrow,.case-journal .case-eyebrow,.evaluation .evaluation-kicker,.marketing-heading>div>p{font-size:20px;letter-spacing:.5px}.pressure-new-heading:before{margin-left:0}.pressure-columns article{grid-template-columns:42px 1fr}.pressure-columns article>span{padding-top:0}.market-slope:before{width:36px}.ecosystem-new-heading{padding-left:18px}.partnership-ledger-title>span{width:44px;height:44px;font-size:32px}}
+@media print{.market-new-heading:after,.market-slope:before{display:none}}
+/* Case-study opening: brand accents and restrained editorial ornaments. */
+.case-intro{position:relative;isolation:isolate;border-top:0}
+.case-intro-top{position:relative;padding-left:22px}
+.case-intro-top:before{content:'';position:absolute;left:0;top:.35em;bottom:.35em;width:4px;border-radius:4px;background:#a72434}
+.case-intro h2{max-width:1100px;text-wrap:balance}
+.case-cover-grid{position:relative;gap:clamp(22px,2.5vw,40px);margin-top:65px}
+.case-cover-grid:before{content:'';position:absolute;right:0;top:-60px;width:100px;height:25px;background:radial-gradient(#c6d2cc 1.5px,transparent 1.5px) 0 0/10px 10px;pointer-events:none}
+.case-cover{--cover-accent:#a72434;--cover-tint:#f7ecec;position:relative;padding-bottom:16px;border-bottom:3px solid var(--cover-accent)}
+.cover-phuclong{--cover-accent:#146547;--cover-tint:#ecf4ee}
+.cover-texas{--cover-accent:#ad6714;--cover-tint:#fbf2df}
+.case-cover-label{min-height:55px;align-items:center;font-size:clamp(16px,1.3vw,21px);gap:12px;padding-bottom:10px;margin-bottom:0}
+.case-cover-label b{color:var(--cover-accent);font-weight:700;line-height:1.4}
+.case-cover-label>span{font-size:clamp(14px,1.1vw,18px);background:var(--cover-tint);color:var(--cover-accent);border-radius:50px;padding:7px 12px}
+.case-cover figure{position:relative;border-radius:4px 30px 4px 4px}
+.case-cover:after{display:block;margin-top:16px;color:var(--cover-accent);font-size:14px;font-weight:600;letter-spacing:.5px;line-height:1.5}
+.cover-highlands:after{content:'01  /  Tặng đồ uống'}
+.cover-phuclong:after{content:'02  /  Nhiệm vụ & coupon'}
+.cover-texas:after{content:'03  /  Hoàn tiền theo nhóm'}
+.case-cover:hover img,.case-cover:focus-visible img{transform:scale(1.035)}
+@media(min-width:1000px){.case-intro:after{content:'×';position:absolute;right:6%;top:145px;display:grid;place-items:center;width:62px;height:62px;border:1px solid #dce5df;border-radius:50%;font-size:40px;font-weight:400;color:#94aa9c;line-height:1;pointer-events:none}}
+@media(max-width:700px){.case-cover-grid{margin-top:45px}.case-cover-grid:before{top:-28px;width:60px;height:15px}.case-cover-label{flex-wrap:wrap;align-content:end;gap:8px;min-height:76px;padding-bottom:12px}.case-cover-label>span{font-size:13px;padding:5px 9px}.case-cover:after{font-size:13px;letter-spacing:0}.case-cover figure{border-radius:4px 20px 4px 4px}}
+@media print{.case-intro:after,.case-cover-grid:before{display:none}}
+/* Larger cover captions; remove the circular cross ornament. */
+.case-cover:after{font-size:clamp(20px,1.9vw,28px);font-weight:700;line-height:1.45;letter-spacing:0}
+.case-intro:after{display:none}
+@media(max-width:700px){.case-cover:after{font-size:20px}}

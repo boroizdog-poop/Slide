@@ -1,0 +1,27 @@
+﻿/* Presentation mode: gentle vertical stops, with natural overflow for long slides. */
+@media screen and (min-width:901px){
+  html{scroll-snap-type:none;scroll-padding-top:24px}
+  .hero,.dashboard,.continuation,.marketing-swipe,.case-intro,.case-brand,.case-mechanism,.case-analysis,.case-comparison,.evaluation-header,.evaluation-block,.evaluation-conclusion{scroll-snap-align:start;scroll-snap-stop:normal;scroll-margin-top:24px}
+  .hero{min-height:calc(100svh - 150px)}
+  .dashboard,.continuation{min-height:calc(100svh - 48px);margin-block:72px;display:flex;flex-direction:column;justify-content:center}
+  .dashboard{justify-content:flex-start}
+  .case-intro,.case-brand,.case-mechanism,.case-analysis,.case-comparison{min-height:calc(100svh - 48px);padding-top:clamp(40px,6vh,80px);padding-bottom:clamp(40px,6vh,80px)}
+  .case-intro,.case-brand,.case-analysis,.case-comparison{display:flex;flex-direction:column;justify-content:center}
+  .case-nav{position:relative;top:auto}
+  .case-brand h3{font-size:clamp(72px,8vw,130px)}
+  .case-panorama{height:clamp(300px,48vh,600px);margin-top:32px!important}
+  .case-cover-grid{margin-top:40px}
+  .case-cover figure{height:clamp(220px,36vh,410px)}
+  .evaluation-header{min-height:65svh;display:flex;flex-direction:column;justify-content:center;padding-block:50px}
+  .evaluation-benefits,.evaluation-limits{min-height:calc(100svh - 48px);align-items:center}
+  .evaluation-causes{min-height:calc(100svh - 48px);align-content:center}
+  .evaluation-conclusion{min-height:60svh}
+}
+.slide-controls{position:fixed;right:14px;bottom:18px;z-index:40;display:flex;align-items:center;gap:5px;background:#ffffffed;border:1px solid #d4e2ed;border-radius:40px;padding:5px;box-shadow:0 4px 20px #24446215;backdrop-filter:blur(10px)}
+.slide-controls button{width:34px;height:34px;border-radius:50%;background:#edf5fb;color:#285c83;font-size:20px;line-height:1}
+.slide-controls button:hover{background:#d7e9f7}.slide-controls button:disabled{opacity:.35;cursor:default}
+.slide-counter{min-width:68px;text-align:center;color:#456276;font-size:13px;font-weight:600;font-variant-numeric:tabular-nums}
+@media(max-width:900px){.slide-controls{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-snap-type:none}}
+@media print{.slide-controls{display:none}}
+

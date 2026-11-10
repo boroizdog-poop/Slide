@@ -1,0 +1,115 @@
+﻿/* Highlands product stories — a cream editorial rail and a rotating photo wheel. */
+.highlands-products{width:100%;height:100svh;position:relative;scroll-margin-top:0;background:#fdfcf9;color:#452920;--product-red:#a52334}
+.products-pin{width:100%;position:relative;top:0;height:100svh;min-height:0;overflow:hidden;isolation:isolate;background:#fdfcf9}
+.products-heading{position:absolute;top:5%;left:4%;width:24%;z-index:5}
+.products-heading p{font-size:26px;line-height:1.35;color:#8c2332;font-weight:650;margin:22px 0 0}
+.products-brand{width:150px;height:96px;object-fit:contain;filter:brightness(0) saturate(100%) invert(17%) sepia(45%) saturate(2640%) hue-rotate(327deg) brightness(86%)}
+.products-garden-background,.products-garden-shade{display:none}
+.products-wheel-scene{position:absolute;left:29%;top:-27%;width:113%;height:154%;border-radius:50%;overflow:hidden;background:#301519;z-index:-1}
+.wheel-backdrop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(3px) brightness(.45) saturate(.7);opacity:0;transition:opacity .7s}
+.wheel-backdrop.is-active{opacity:1}
+.products-wheel-scene:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#390e22c9,#35171c30 75%)}
+.wheel-rim{position:absolute;left:81%;top:50%;width:105svh;height:105svh;border:2px solid #c89d6b88;border-radius:50%;transform:translateY(-50%) rotate(var(--wheel-turn,0deg));box-shadow:0 0 0 14px #f0d9ad0b,0 0 0 17px #e5c59755,inset 0 0 0 22px #1e101a66;z-index:1;background:repeating-conic-gradient(from 0deg,#e7c99a66 0deg .25deg,transparent .25deg 30deg);mask:radial-gradient(circle,transparent 0 20%,#000 20.2%)}
+.products-copy{position:absolute;left:4%;top:40%;width:25%;z-index:4;padding-right:2%}
+.wheel-copy-stack{display:grid;max-width:420px}
+.wheel-copy-panel{grid-area:1/1;opacity:0;visibility:hidden;transform:translateX(35px);transition:opacity .4s,transform .5s,visibility .4s}
+.wheel-copy-panel.is-active{opacity:1;visibility:visible;transform:none}
+.wheel-tag{font-size:26px;color:#a52334;line-height:1.25;margin:0 0 12px}
+.wheel-copy-panel h3{font-size:clamp(42px,4vw,66px);letter-spacing:-2px;line-height:1.02;color:#8c2332;margin:0 0 20px;text-wrap:balance}
+.wheel-description,.wheel-examples{font-size:26px;line-height:1.35;margin:0 0 18px}
+.wheel-examples{color:#8a6451}
+.products-orbit{position:absolute;left:30%;right:10%;top:12%;height:77%;z-index:3}
+.wheel-products{position:absolute;inset:0}
+.wheel-product{position:absolute;left:0;top:0;margin:0;will-change:transform,opacity;pointer-events:none}
+.garden-product-shadow{display:none}
+.wheel-pagination{position:absolute;left:43%;bottom:6%;display:flex;align-items:baseline;gap:9px;color:#e9c78f;z-index:4;font-size:26px}
+.wheel-pagination strong{font-family:Georgia,serif;font-size:64px;font-weight:400}
+.wheel-controls{position:absolute;bottom:6%;left:4%;display:flex;gap:12px;z-index:6}
+.wheel-controls button{border:1px solid #a5233455;border-radius:50%;width:52px;height:52px;background:transparent;color:#8c2332;font-size:28px;cursor:pointer}
+.wheel-controls button:hover,.wheel-controls button:focus-visible{background:#a52334;color:white}
+.wheel-controls button:disabled{opacity:.3;cursor:default}
+.wheel-sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@media(min-width:901px) and (max-height:760px){.products-heading{top:3%}.products-brand{height:65px;width:110px}.products-heading p{margin-top:10px}.products-copy{top:35%}.wheel-tag{margin-bottom:8px}.wheel-copy-panel h3{font-size:44px;margin-bottom:14px}.wheel-description,.wheel-examples{line-height:1.22;margin-bottom:12px}.wheel-controls{bottom:3%}}
+@media(max-width:1100px) and (min-width:901px){.products-heading{width:28%}.products-copy{width:30%;left:3%}.products-wheel-scene{left:34%}.products-orbit{left:35%;right:5%}.wheel-copy-panel h3{font-size:44px}}
+@media(max-width:900px){.products-heading{top:20px;left:24px;width:calc(100% - 48px);display:flex;gap:18px;align-items:center}.products-brand{width:80px;height:62px}.products-heading p{font-size:26px;line-height:1.15;margin:0}.products-copy{left:24px;top:118px;width:calc(100% - 48px);padding:0}.wheel-copy-stack{max-width:100%}.wheel-tag{display:none}.wheel-copy-panel h3{font-size:38px;margin-bottom:10px}.wheel-description,.wheel-examples{font-size:26px;line-height:1.2;margin-bottom:10px}.products-wheel-scene{left:8%;top:43%;width:145%;height:95%}.products-orbit{left:10%;right:8%;top:47%;height:45%}.wheel-rim{left:80%;top:76%;width:65svh;height:65svh}.wheel-pagination{left:auto;right:24px;bottom:2%;font-size:26px}.wheel-pagination strong{font-size:44px}.wheel-controls{left:24px;bottom:2%}}
+@media(prefers-reduced-motion:reduce){.wheel-copy-panel,.wheel-backdrop{transition:none}}
+@media print{.highlands-products{height:auto}.products-pin{height:auto;overflow:visible;padding:30px}.products-heading,.products-copy{position:static;width:auto}.wheel-copy-stack{display:block}.wheel-copy-panel{opacity:1;visibility:visible;transform:none;margin:30px 0}.products-wheel-scene,.products-orbit,.wheel-rim,.wheel-controls,.wheel-pagination{display:none}}
+
+
+/* Single viewport, horizontal product transitions. */
+.highlands-products{touch-action:pan-y;outline-offset:-4px}.products-copy{top:45%}.wheel-copy-panel h3{font-size:clamp(44px,4.4vw,72px)}@media(max-width:900px){.products-copy{top:125px}.products-wheel-scene{top:30%;height:110%}.products-orbit{top:30%;height:58%}.wheel-copy-panel h3{font-size:40px}}
+
+
+/* Products rotate as a single wheel around a shared right-hand pivot. */
+.products-orbit{inset:0;width:100%;height:100%;overflow:visible}.wheel-rim{transform:translate(-50%,-50%) rotate(var(--wheel-turn,0deg));border-color:#ffffff30;background:repeating-conic-gradient(#ffffff25 0deg .16deg,transparent .16deg 50deg);box-shadow:0 0 0 12px #ffffff04,0 0 0 14px #ffffff22,inset 0 0 0 20px #201d1d33}.wheel-backdrop{filter:blur(2px) brightness(.46) saturate(.65)}.products-wheel-scene:after{background:linear-gradient(90deg,#201c20b8,#211d2033)}.wheel-pagination{color:#eee8de}.products-copy{z-index:5;pointer-events:none}.products-heading{pointer-events:none}.wheel-product{transform-origin:center center}.products-wheel-scene{background:#242021}@media(max-width:900px){.products-orbit{inset:0;width:100%;height:100%}.products-copy{top:130px}.products-wheel-scene{left:5%;top:27%;width:160%;height:115%}}
+
+/* Independent, uncropped product images and natural daylight themes. */
+img.garden-product-art{display:block;width:100%;height:100%;object-fit:contain;background:none;filter:drop-shadow(8px 15px 14px #1c291c26)}
+.wheel-backdrop{filter:none;object-position:center;transition:opacity .7s}
+.products-wheel-scene:after{display:none}
+.products-wheel-scene{background:#e8eee4}
+.wheel-rim{opacity:.35}
+.wheel-pagination{color:#8c2332;text-shadow:0 1px 5px #ffffffd9}
+/* White daylight garden stages with real foreground support, no warm cast. */
+.product-contact-shadow{position:absolute;height:22px;z-index:0;pointer-events:none;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(ellipse,#24312680,transparent 68%);filter:blur(3px)}
+.products-wheel-scene{background:#e4ebe8}
+.wheel-backdrop{image-rendering:auto;filter:none}
+img.garden-product-art{filter:drop-shadow(5px 9px 5px #24312620)}
+.product-contact-shadow{z-index:9}
+/* Counter changes with each product's material and colour palette. */
+.highlands-products{--counter-ink:#fffaf5;--counter-shadow:#24140de0}
+.highlands-products[data-active-product="0"]{--counter-ink:#fffaf5;--counter-shadow:#24140de0}
+.highlands-products[data-active-product="1"]{--counter-ink:#63263d;--counter-shadow:#fff6f6d9}
+.highlands-products[data-active-product="2"]{--counter-ink:#124d36;--counter-shadow:#f2fff8d9}
+.highlands-products[data-active-product="3"]{--counter-ink:#fff9f5;--counter-shadow:#3d1c14e0}
+.highlands-products[data-active-product="4"]{--counter-ink:#fff7f5;--counter-shadow:#291017e0}
+.wheel-pagination{color:var(--counter-ink);text-shadow:0 1px 4px var(--counter-shadow);transition:color .7s,text-shadow .7s}
+@media(prefers-reduced-motion:reduce){.wheel-pagination{transition:none}}
+/* Palette follows Highlands flavour campaigns. */
+.highlands-products[data-active-product="1"]{--counter-ink:#174b35;--counter-shadow:#f2fff7cc}
+.highlands-products[data-active-product="2"]{--counter-ink:#f5fff8;--counter-shadow:#103723e6}
+.highlands-products[data-active-product="0"]{--contact-tone:#2a160b99}
+.highlands-products[data-active-product="1"]{--contact-tone:#163a2480}
+.highlands-products[data-active-product="2"]{--contact-tone:#082d1899}
+.highlands-products[data-active-product="3"]{--contact-tone:#38180f99}
+.highlands-products[data-active-product="4"]{--contact-tone:#250c1299}
+.product-contact-shadow{background:radial-gradient(ellipse,var(--contact-tone,#24312680),transparent 68%);transition:background .7s}
+.highlands-products[data-active-product="3"]{--counter-ink:#682737;--counter-shadow:#fff7ee99}
+/* Keep the ingredient accents at the visible right edge of the circular scene. */
+.wheel-backdrop{transform:translateX(-36%);object-position:right center}
+
+
+
+
+
+/* Keep the arrow glyphs optically centred and the controls inside the slide. */
+.wheel-controls{align-items:center;gap:14px;bottom:max(28px,5svh)}
+.wheel-controls button{display:grid;place-items:center;padding:0;line-height:1;font-family:Arial,sans-serif;font-weight:400;flex:0 0 52px;transition:background .2s,color .2s,opacity .2s}
+body:has(.highlands-products){overflow-anchor:none}
+
+
+.wheel-controls{bottom:max(28px,5%)}
+
+.wheel-summary{font-size:26px;line-height:1.35;color:#69473f;margin:18px 0 0;max-width:350px;text-wrap:pretty}.highlands-products,.products-pin{width:100%;height:100svh}
+
+/* Centre product names and their short descriptions in the text column. */
+.products-copy{text-align:center}
+.wheel-copy-stack{margin-inline:auto}
+.wheel-summary{margin-inline:auto}
+/* Vertically centre the full title-and-description group in the viewport. */
+.products-copy{top:50%;transform:translateY(-50%)}
+/* Stable desktop composition: F11 adds height without zooming the artwork. */
+@media(min-width:901px){
+ .products-heading{top:clamp(24px,3vw,48px)}
+ .products-brand{width:clamp(110px,9vw,150px);height:auto;aspect-ratio:150/96}
+ .wheel-copy-panel h3{margin-bottom:20px}
+ /* Paint just the visible viewport, not the oversized circular clipping box. */
+ .wheel-backdrop{top:17.5324675%;bottom:auto;height:64.935065%;object-position:right center}
+}
+.wheel-copy-stack{position:relative;display:block}
+.wheel-copy-panel{position:absolute;inset:0}
+.wheel-copy-panel.is-active{position:relative;inset:auto}
+@media(min-width:901px){.wheel-backdrop{width:105%;transform:translateX(-39%)}}
+
+/* Remove the decorative wheel silhouette behind the products. */
+.wheel-rim{display:none}

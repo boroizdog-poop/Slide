@@ -1,0 +1,13 @@
+﻿/* Manual scrolling remains free; only navigation buttons initiate slide movement. */
+html{scroll-snap-type:none!important;scroll-behavior:auto}
+/* Images stay visible while scrolling; no opacity/transform reveal on their frames. */
+.case-journal [data-case-reveal]{opacity:1;transform:none}
+@media screen and (min-width:901px){
+  .dashboard .number-slide{padding-block:32px;justify-content:center}
+  .dashboard .chart-row{padding-block:20px}
+  .dashboard .chart-table-head{padding-block:14px}
+  .dashboard .chart-axis{padding-block:10px}
+  .dashboard .chart-value{font-size:clamp(34px,3.5vw,54px)}
+  .dashboard .chart-caption{line-height:1.5;margin-top:18px}
+  .dashboard .additional-inner{padding-top:24px}
+}

@@ -1,0 +1,18 @@
+/* Lighter blue panels from section 2.1.2 onward. */
+.continuation{background:#f5faff}
+.continuation .market-stats,
+.continuation .opportunity,
+.continuation .journey,
+.continuation .requirements{background:#edf7ff}
+.continuation .market-years div,
+.continuation .cost-tags li{background:#eff8ff}
+.continuation .market-secondary>div:last-child{border-color:#dcecf8}
+
+/* White backgrounds for section 2.1.2. */
+.continuation.market-overview,
+.continuation.market-pressure,
+.market-overview .market-stats,
+.market-overview .market-years div,
+.market-pressure .opportunity,
+.market-pressure .cost-tags li{background:#fff}
+

@@ -1,0 +1,8 @@
+details>summary>span[aria-hidden="true"],
+details>summary>.expand-mark{transition:transform 360ms cubic-bezier(.22,1,.36,1)}
+details[data-expanded="true"]>summary>span[aria-hidden="true"],
+details[data-expanded="true"]>summary>.expand-mark{transform:rotate(45deg)}
+details[data-expanded="false"]>summary>span[aria-hidden="true"],
+details[data-expanded="false"]>summary>.expand-mark{transform:rotate(0)}
+details[data-animating="true"]{overflow-anchor:none}
+@media(prefers-reduced-motion:reduce){details>summary>span[aria-hidden="true"],details>summary>.expand-mark{transition:none}}

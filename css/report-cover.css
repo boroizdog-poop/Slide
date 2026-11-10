@@ -1,0 +1,11 @@
+/* Opening cover follows the full-photo composition of chapter 3. */
+.report-cover{position:relative;isolation:isolate;width:100%;height:100svh;min-height:100svh;margin:0 0 72px;background:#34231b;color:#fff;display:grid;align-items:center;scroll-margin-top:0}
+.report-cover-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2}
+.report-cover-shade{position:absolute;inset:0;background:linear-gradient(#1b100880,#160c05a8 45%,#130b0699);z-index:-1}
+.report-cover-rule{position:absolute;left:8%;right:8%;height:2px;background:#fffdf1ed}
+.report-cover-rule-top{top:9%}.report-cover-rule-bottom{bottom:9%}
+.report-cover-title{width:90%;margin:0 auto;transform:translateY(-4svh);text-align:center;text-shadow:0 3px 18px #16090038}
+.report-cover-title h1{margin:0;color:#fff;font-family:Inter,Arial,sans-serif;font-size:clamp(26px,3.1vw,60px);font-weight:700;line-height:1.55;letter-spacing:-.06vw}
+.report-cover-title h1>span{display:block;white-space:normal}
+@media(max-width:700px){.report-cover-title{width:86%;transform:none;padding:48px 0}.report-cover-title h1{font-size:26px;line-height:1.4;letter-spacing:-.5px}.report-cover-title h1>span{display:inline}.report-cover-title h1>span+span:before{content:' '}.report-cover{height:auto;min-height:100svh}.report-cover-rule{left:7%;right:7%}.report-cover-rule-top{top:5%}.report-cover-rule-bottom{bottom:5%}}
+@media print{.report-cover{height:auto;min-height:0;aspect-ratio:16/9;break-after:page;print-color-adjust:exact}}

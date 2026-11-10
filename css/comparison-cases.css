@@ -1,0 +1,149 @@
+﻿/* Comparison cases: compact dossier with a wide image and a clear reading rail. */
+.case-phuclong,.case-texas{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);padding:65px clamp(24px,5vw,80px) 55px;gap:40px clamp(30px,4vw,65px);max-width:1440px;margin-inline:auto;align-items:start}
+.case-phuclong>.case-brand,.case-texas>.case-brand{display:flex;flex-direction:column;justify-content:flex-start;width:100%;min-height:0;padding:0;scroll-snap-align:none}
+.case-phuclong .case-brand-meta,.case-texas .case-brand-meta{display:flex;flex-direction:column;align-items:flex-start;gap:16px;margin-bottom:22px}
+.case-phuclong .case-brand h3,.case-texas .case-brand h3{font-size:clamp(46px,5.2vw,76px);line-height:1.1;letter-spacing:-2.5px;overflow-wrap:normal}
+.case-phuclong .case-partner,.case-texas .case-partner{font-size:18px;line-height:1.5}
+.case-phuclong .case-panorama,.case-texas .case-panorama{height:clamp(280px,29vw,410px);margin-top:28px!important;border-radius:6px}
+.case-phuclong>.case-mechanism,.case-texas>.case-mechanism{display:flex;flex-direction:column;gap:26px;padding:0;width:100%;min-height:0;scroll-snap-align:none;align-items:stretch}
+.case-phuclong .case-editorial,.case-texas .case-editorial{padding-top:4px}
+.case-phuclong .case-editorial h4,.case-texas .case-editorial h4{font-size:clamp(30px,3vw,42px);line-height:1.2;letter-spacing:-1px;margin-top:16px}
+.case-phuclong .case-objectives,.case-texas .case-objectives{margin-top:22px;padding-top:16px}
+.case-phuclong .case-objectives p,.case-texas .case-objectives p{font-size:22px;line-height:1.5;margin-top:8px}
+.case-phuclong .case-receipt,.case-texas .case-receipt{padding:25px 28px 30px;box-shadow:none}
+.case-phuclong .case-receipt dl>div,.case-texas .case-receipt dl>div{font-size:21px;line-height:1.5;grid-template-columns:minmax(100px,.75fr) minmax(0,1.4fr);gap:18px;padding-block:13px}
+.case-phuclong .receipt-subtitle,.case-texas .receipt-subtitle{font-size:23px}
+.case-phuclong .receipt-footer,.case-texas .receipt-footer{font-size:21px;line-height:1.5}
+.case-phuclong>.case-analysis,.case-texas>.case-analysis{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:25px 45px;width:100%;min-height:0;padding:35px 0 0;margin-top:12px;scroll-snap-align:none;justify-content:initial}
+.case-phuclong .case-analysis h4,.case-texas .case-analysis h4{grid-column:1/-1;font-size:32px;line-height:1.3;letter-spacing:-.8px;margin:0}
+.case-phuclong .case-role-grid,.case-texas .case-role-grid{margin:0;gap:26px;align-content:start}
+.case-phuclong .case-role-grid h5,.case-texas .case-role-grid h5{font-size:22px;line-height:1.4}
+.case-phuclong .case-role-grid p,.case-texas .case-role-grid p{font-size:20px;line-height:1.6;margin-top:10px}
+.case-phuclong .case-outcome,.case-texas .case-outcome{margin:0;padding:24px;background:var(--case-tint);border:0}
+.case-phuclong .case-outcome p,.case-texas .case-outcome p{font-size:21px;line-height:1.6}
+.case-phuclong .case-outcome strong,.case-texas .case-outcome strong{font-size:22px;line-height:1.5;margin-top:14px;display:block}
+.case-phuclong,.case-texas{scroll-snap-align:start;scroll-margin-top:24px}
+@media(max-width:850px){.case-phuclong,.case-texas{grid-template-columns:1fr;padding:40px 28px;gap:36px}.case-phuclong .case-panorama,.case-texas .case-panorama{height:350px}.case-phuclong>.case-analysis,.case-texas>.case-analysis{grid-template-columns:1fr}.case-phuclong .case-brand h3,.case-texas .case-brand h3{font-size:52px;letter-spacing:-1.5px}.case-phuclong .case-brand-meta,.case-texas .case-brand-meta{gap:12px}}
+@media(max-width:520px){.case-phuclong,.case-texas{padding:35px 22px}.case-phuclong .case-panorama,.case-texas .case-panorama{height:260px}.case-phuclong .case-brand h3,.case-texas .case-brand h3{font-size:44px}.case-phuclong .case-receipt,.case-texas .case-receipt{padding:22px 20px}.case-phuclong .case-receipt dl>div,.case-texas .case-receipt dl>div{grid-template-columns:1fr;font-size:20px;gap:5px}.case-phuclong .case-role-grid,.case-texas .case-role-grid{grid-template-columns:1fr;gap:22px}}
+@media print{.case-phuclong,.case-texas{display:block;padding:25px}.case-phuclong>.case-brand,.case-texas>.case-brand,.case-phuclong>.case-mechanism,.case-texas>.case-mechanism,.case-phuclong>.case-analysis,.case-texas>.case-analysis{break-before:auto;margin-bottom:25px}.case-phuclong .case-panorama,.case-texas .case-panorama{height:250px}}
+/* Simplify comparison cases into a single, calm reading sequence. */
+.case-phuclong,.case-texas{display:block;max-width:1120px;padding:60px clamp(24px,5vw,65px);border-top:1px solid #e1e5df}
+.case-phuclong>.case-brand,.case-texas>.case-brand{display:block}
+.case-phuclong .case-brand-meta,.case-texas .case-brand-meta{gap:12px;margin-bottom:20px}
+.case-phuclong .case-panorama,.case-texas .case-panorama{height:clamp(260px,35vw,440px);margin-top:28px!important;border-radius:4px}
+.case-phuclong>.case-mechanism,.case-texas>.case-mechanism{display:block;margin-top:42px}
+.case-phuclong .case-editorial,.case-texas .case-editorial{max-width:800px}
+.case-phuclong .case-objectives,.case-texas .case-objectives{border:0;margin-top:18px;padding:0}
+.case-phuclong .case-receipt,.case-texas .case-receipt{margin-top:28px;padding:24px 0 12px;background:white;border-top:1px solid #dce2da;box-shadow:none}
+.case-phuclong .case-receipt:after,.case-texas .case-receipt:after{display:none}
+.case-phuclong .receipt-top,.case-texas .receipt-top,.case-phuclong .receipt-subtitle,.case-texas .receipt-subtitle{display:none}
+.case-phuclong .case-receipt dl>div,.case-texas .case-receipt dl>div{grid-template-columns:minmax(130px,.7fr) minmax(0,2fr);border-top:0;padding:12px 0;font-size:22px}
+.case-phuclong .case-receipt dd,.case-texas .case-receipt dd{font-weight:500}
+.case-phuclong .receipt-footer,.case-texas .receipt-footer{border-top:0;padding-top:18px;font-size:21px}
+.case-phuclong>.case-analysis,.case-texas>.case-analysis{display:block;margin-top:32px;padding-top:28px}
+.case-phuclong .case-analysis h4,.case-texas .case-analysis h4{font-size:28px;margin-bottom:22px}
+.case-phuclong .case-role-grid,.case-texas .case-role-grid{display:grid;grid-template-columns:1fr;gap:20px}
+.case-phuclong .case-role-grid>div,.case-texas .case-role-grid>div{display:grid;grid-template-columns:minmax(130px,.7fr) minmax(0,2fr);gap:18px}
+.case-phuclong .case-role-grid p,.case-texas .case-role-grid p{margin:0}
+.case-phuclong .case-outcome,.case-texas .case-outcome{margin-top:28px;padding:0 0 0 20px;background:transparent;border-left:3px solid var(--case-accent)}
+@media(max-width:600px){.case-phuclong,.case-texas{padding:36px 24px}.case-phuclong .case-panorama,.case-texas .case-panorama{height:260px}.case-phuclong .case-receipt dl>div,.case-texas .case-receipt dl>div,.case-phuclong .case-role-grid>div,.case-texas .case-role-grid>div{grid-template-columns:1fr;gap:6px}.case-phuclong>.case-mechanism,.case-texas>.case-mechanism{margin-top:30px}}
+/* Use whitespace instead of dividers in the comparison cases. */
+.case-phuclong,.case-texas{border:0;padding-block:85px;margin-block:45px}
+.case-phuclong .case-receipt,.case-texas .case-receipt,
+.case-phuclong>.case-analysis,.case-texas>.case-analysis,
+.case-phuclong .case-outcome,.case-texas .case-outcome,
+.case-phuclong .case-objectives,.case-texas .case-objectives{border:0}
+.case-phuclong .case-receipt dl>div,.case-texas .case-receipt dl>div,
+.case-phuclong .receipt-footer,.case-texas .receipt-footer,
+.case-phuclong .case-receipt details,.case-texas .case-receipt details{border:0}
+.case-phuclong .case-panorama,.case-texas .case-panorama{margin-top:38px!important}
+.case-phuclong>.case-mechanism,.case-texas>.case-mechanism{margin-top:65px}
+.case-phuclong .case-receipt,.case-texas .case-receipt{margin-top:35px;padding-top:0}
+.case-phuclong .case-receipt dl>div,.case-texas .case-receipt dl>div{padding-block:17px}
+.case-phuclong>.case-analysis,.case-texas>.case-analysis{margin-top:65px;padding-top:0}
+.case-phuclong .case-analysis h4,.case-texas .case-analysis h4{margin-bottom:30px}
+.case-phuclong .case-role-grid,.case-texas .case-role-grid{gap:28px}
+.case-phuclong .case-outcome,.case-texas .case-outcome{margin-top:42px;padding:0}
+@media(max-width:600px){.case-phuclong,.case-texas{padding-block:48px;margin-block:28px}.case-phuclong>.case-mechanism,.case-texas>.case-mechanism,.case-phuclong>.case-analysis,.case-texas>.case-analysis{margin-top:44px}.case-phuclong .case-panorama,.case-texas .case-panorama{margin-top:28px!important}}
+/* One visible case at a time; the tab bar sticks only inside chapter 2.3. */
+.case-journal.has-case-tabs>[role="tabpanel"][hidden]{display:none!important}
+.case-journal.has-case-tabs .case-nav{position:sticky;top:0;z-index:12;background:#fffffff5;backdrop-filter:blur(12px);border:0;box-shadow:0 6px 16px -13px #24445c70;padding:18px 24px;scroll-snap-align:none}
+.case-journal.has-case-tabs .case-nav a{padding:9px 3px;border-bottom:2px solid transparent;font-size:clamp(16px,1.4vw,21px);line-height:1.5}
+.case-journal.has-case-tabs .case-nav a[aria-selected="true"]{border-bottom-color:currentColor;color:#203f54}
+.case-journal.has-case-tabs>[role="tabpanel"]{scroll-margin-top:90px;outline-offset:-4px}
+@media(max-width:650px){.case-journal.has-case-tabs .case-nav{justify-content:flex-start;gap:22px;padding:12px 20px}.case-journal.has-case-tabs .case-nav a{font-size:15px}}
+@media print{.case-journal.has-case-tabs>[role="tabpanel"][hidden]{display:block!important}.case-journal.has-case-tabs .case-nav{display:none}}
+/* Keep the selected case title and photograph together on entry. */
+@media screen and (min-width:851px){
+  .has-case-tabs .case-brand{min-height:0;justify-content:flex-start;padding-top:28px;padding-bottom:35px;scroll-snap-align:none}
+  .has-case-tabs .case-brand-meta{margin-bottom:18px}
+  .has-case-tabs .case-brand h3{font-size:clamp(48px,6vw,86px);line-height:1.1;letter-spacing:-2px}
+  .has-case-tabs .case-brand .case-panorama{height:clamp(210px,42svh,440px);margin-top:22px!important}
+  .has-case-tabs .case-phuclong,.has-case-tabs .case-texas{padding-top:28px;margin-top:0}
+  .has-case-tabs .case-phuclong>.case-brand,.has-case-tabs .case-texas>.case-brand{padding-top:0}
+}
+@media(max-width:850px){
+  .has-case-tabs .case-brand{padding-top:24px;min-height:0}
+  .has-case-tabs .case-phuclong,.has-case-tabs .case-texas{padding-top:24px;margin-top:0}
+  .has-case-tabs .case-phuclong>.case-brand,.has-case-tabs .case-texas>.case-brand{padding-top:0}
+  .has-case-tabs .case-brand h3{font-size:clamp(38px,7vw,64px);line-height:1.12;letter-spacing:-1px}
+  .has-case-tabs .case-brand .case-panorama{height:clamp(180px,35svh,350px);margin-top:20px!important}
+}
+/* Larger case photos, with room reserved for the sticky tabs and heading. */
+@media screen and (min-width:851px){
+  .has-case-tabs .case-brand .case-panorama{height:min(58svh,max(160px,calc(100svh - 320px)));margin-top:20px!important}
+}
+@media screen and (max-width:850px){
+  .has-case-tabs .case-brand .case-panorama{height:min(50svh,max(130px,calc(100svh - 300px)));margin-top:18px!important}
+}
+/* Give all three case images more of the viewport, keeping the title above. */
+@media screen and (min-width:851px){
+  .has-case-tabs .case-brand{padding-top:18px;padding-bottom:24px}
+  .has-case-tabs .case-phuclong,.has-case-tabs .case-texas{padding-top:18px}
+  .has-case-tabs .case-brand-meta{margin-bottom:12px;gap:8px}
+  .has-case-tabs .case-brand h3{font-size:clamp(46px,5.2vw,74px);line-height:1.08}
+  .has-case-tabs .case-brand .case-panorama{height:min(70svh,max(180px,calc(100svh - 255px)));margin-top:16px!important}
+}
+@media screen and (max-width:850px){
+  .has-case-tabs .case-brand{padding-top:18px}
+  .has-case-tabs .case-phuclong,.has-case-tabs .case-texas{padding-top:18px}
+  .has-case-tabs .case-brand-meta{margin-bottom:12px;gap:8px}
+  .has-case-tabs .case-brand .case-panorama{height:min(62svh,max(150px,calc(100svh - 265px)));margin-top:14px!important}
+}
+/* Keep all comparison columns visible at common projector widths. */
+@media screen and (min-width:901px){
+  .case-comparison .case-table-wrap table{min-width:0;table-layout:fixed;width:100%;font-size:clamp(18px,1.6vw,24px)}
+  .case-comparison .case-table-wrap th,.case-comparison .case-table-wrap td{overflow-wrap:break-word;padding:16px 12px}
+}
+/* Comparison cases expose the same three navigation stops as Highlands. */
+.case-journal.has-case-tabs .case-phuclong>.case-brand,
+.case-journal.has-case-tabs .case-texas>.case-brand,
+.case-journal.has-case-tabs .case-phuclong>.case-mechanism,
+.case-journal.has-case-tabs .case-texas>.case-mechanism,
+.case-journal.has-case-tabs .case-phuclong>.case-analysis,
+.case-journal.has-case-tabs .case-texas>.case-analysis{scroll-margin-top:100px}
+/* Fullscreen: each comparison stop occupies its own screen below the tabs. */
+@media screen and (min-width:901px){
+  .is-presentation-fullscreen .case-journal.has-case-tabs .case-phuclong>.case-brand,
+  .is-presentation-fullscreen .case-journal.has-case-tabs .case-texas>.case-brand,
+  .is-presentation-fullscreen .case-journal.has-case-tabs .case-phuclong>.case-mechanism,
+  .is-presentation-fullscreen .case-journal.has-case-tabs .case-texas>.case-mechanism,
+  .is-presentation-fullscreen .case-journal.has-case-tabs .case-phuclong>.case-analysis,
+  .is-presentation-fullscreen .case-journal.has-case-tabs .case-texas>.case-analysis{
+    min-height:calc(100svh - 88px);
+    box-sizing:border-box;
+    margin-top:0;
+    padding-top:24px;
+    padding-bottom:48px;
+    scroll-margin-top:88px;
+  }
+  .is-presentation-fullscreen .case-journal.has-case-tabs .case-phuclong>.case-mechanism,
+  .is-presentation-fullscreen .case-journal.has-case-tabs .case-texas>.case-mechanism,
+  .is-presentation-fullscreen .case-journal.has-case-tabs .case-phuclong>.case-analysis,
+  .is-presentation-fullscreen .case-journal.has-case-tabs .case-texas>.case-analysis{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .is-presentation-fullscreen .evaluation{margin-top:80px}
+}

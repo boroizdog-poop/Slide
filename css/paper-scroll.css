@@ -1,0 +1,15 @@
+﻿/* A continuous white paper roll over a fixed, softly lit backdrop. */
+html{background:#edf3f8}
+body{background:transparent;isolation:isolate}
+body:before{content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse 65% 58% at 48% -8%,#acd5fb 0%,#d4e8fa 48%,transparent 85%),radial-gradient(ellipse 48% 65% at 0% 45%,#deecfa 0%,transparent 85%),radial-gradient(ellipse 50% 60% at 100% 75%,#d7eafa 0%,transparent 85%),#f1f5f9}
+.page{position:relative;width:calc(100% - clamp(32px,7vw,150px));max-width:1800px;margin:clamp(28px,5vh,64px) auto clamp(45px,8vh,100px);background:#fff;border-radius:14px 14px 5px 5px;box-shadow:0 3px 6px #36587708,0 20px 75px #36587716,1px 0 0 #ffffffd9,-1px 0 0 #ffffffd9;display:flow-root;isolation:isolate}
+/* A fine curled lip at the leading edge of the paper. */
+.page:before{content:'';position:absolute;top:0;left:14px;right:14px;height:10px;border-radius:50%;background:linear-gradient(180deg,#fff,#e4ebf155 50%,#fff);pointer-events:none;z-index:1}
+.page:after{content:'';display:block;height:38px;margin:0 20px;border-top:1px dashed #dbe4eb;background:linear-gradient(180deg,#fff,#fafcfe);pointer-events:none}
+/* Full-width chapters stay on the paper rather than covering the backdrop. */
+.marketing-swipe,.case-journal{left:auto;transform:none;width:100%;max-width:100%}
+.evaluation{padding-inline:clamp(22px,4vw,64px)}
+.case-page{max-width:100%}
+@media(max-width:700px){.page{width:calc(100% - 20px);margin:18px auto 35px;border-radius:10px 10px 4px 4px;box-shadow:0 8px 35px #36587718}.page:before{left:10px;right:10px;height:6px}.page:after{height:24px;margin-inline:12px}.evaluation{padding-inline:22px}}
+@media print{html,body{background:white}body:before,.page:before,.page:after{display:none}.page{width:100%;max-width:none;margin:0;border-radius:0;box-shadow:none}.evaluation{padding-inline:0}}
+

@@ -1,0 +1,49 @@
+﻿/* Applied only when browser fullscreen is detected, including F11. */
+@media screen and (min-width:901px){
+  html.is-presentation-fullscreen{scroll-padding-top:0}
+  .is-presentation-fullscreen .page{width:100%;max-width:none;margin:0;border-radius:0;box-shadow:none}
+  .is-presentation-fullscreen .page:before,.is-presentation-fullscreen .page:after{display:none}
+  .is-presentation-fullscreen .header{height:72px;padding-inline:5%}
+  .is-presentation-fullscreen .hero{margin-inline:0;border-radius:0;min-height:0;height:calc(100svh - 72px);aspect-ratio:auto}
+  .is-presentation-fullscreen .hero-image{border-radius:0}
+  .is-presentation-fullscreen .dashboard,.is-presentation-fullscreen .continuation{min-height:100svh;scroll-margin-top:0;margin-block:0;border-radius:0;width:100%;max-width:1640px;padding:clamp(28px,4vh,54px) clamp(32px,5vw,80px)}
+  .is-presentation-fullscreen .case-page{max-width:1640px}
+  .is-presentation-fullscreen .case-intro,.is-presentation-fullscreen .case-mechanism,.is-presentation-fullscreen .case-analysis,.is-presentation-fullscreen .case-comparison{scroll-margin-top:0}
+  .is-presentation-fullscreen .case-phuclong,.is-presentation-fullscreen .case-texas{max-width:1500px}
+  .is-presentation-fullscreen .evaluation{margin-top:0;max-width:1640px;margin-inline:auto}
+  .is-presentation-fullscreen .evaluation-block{min-height:100svh;scroll-margin-top:0}
+  .is-presentation-fullscreen .slide-controls{right:14px;bottom:12px}
+}
+/* Fit the entire opening composition without changing its original proportions. */
+@media screen and (min-width:701px){
+  .page>.header{height:clamp(60px,8svh,84px)}
+  .hero,.is-presentation-fullscreen .hero{
+    width:min(95.83333%,calc((100svh - clamp(60px,8svh,84px) - 48px) * 1380 / 664));
+    height:auto;
+    min-height:0;
+    max-height:none;
+    aspect-ratio:1380 / 664;
+    margin:0 auto;
+  }
+  .is-presentation-fullscreen .hero{
+    width:min(95.83333%,calc((100svh - clamp(60px,8svh,84px) - 16px) * 1380 / 664));
+    border-radius:clamp(24px,3vw,60px);
+  }
+  .is-presentation-fullscreen .hero-image{border-radius:inherit}
+  .hero .hero-copy{width:52%}
+  .hero .info-card{max-width:34.78261%}
+}
+/* Intrinsic image dimensions must never widen the cover. */
+@media screen and (min-width:701px){
+  .hero,.is-presentation-fullscreen .hero{max-width:calc(100% - 32px);margin-inline:auto;flex-shrink:1;min-width:0;overflow:hidden;scroll-snap-align:none}
+  .hero-image{position:absolute;inset:0;width:100%;height:100%;max-width:100%;object-fit:cover}
+  .hero .info-card{left:auto;right:0;max-width:34.78261%;box-sizing:border-box}
+}
+/* Move the whole opening down; keep the cover's sizing independent of this gap. */
+@media screen and (min-width:701px){
+  .page>.header{margin-top:30px}
+}
+/* Preserve the blue backdrop in browser fullscreen as well. */
+@media screen and (min-width:901px){
+  .is-presentation-fullscreen .page{width:calc(100% - clamp(32px,7vw,150px));max-width:1800px;margin:clamp(28px,5vh,64px) auto 45px;border-radius:14px 14px 5px 5px;box-shadow:0 20px 75px #36587716}
+}

@@ -1,0 +1,85 @@
+﻿/* Section 2.2: separate reading and photography panels. */
+.marketing-swipe{--screen-pad:clamp(24px,5vw,96px);position:relative;left:50%;transform:translateX(-50%);width:100vw;max-width:none;margin:80px 0 0;padding:0;background:#fff;color:#172b48;overflow:hidden;scroll-margin-top:0}
+.marketing-heading{padding:36px var(--screen-pad) 22px}
+.marketing-heading p{margin:0 0 12px;color:#73869c;font-size:14px;font-weight:600;letter-spacing:1.1px}
+.marketing-heading h2{margin:0;color:#172b48;font-size:34px;line-height:1.2;letter-spacing:-.5px}
+.marketing-nav{display:flex;gap:28px;padding:0 var(--screen-pad) 26px;overflow-x:auto;scrollbar-width:none}
+.marketing-nav button{flex-shrink:0;font:500 16px Inter,sans-serif;padding:12px 0;background:none;color:#718198;border:0;border-bottom:2px solid transparent;cursor:pointer;transition:color .3s,border-color .3s}
+.marketing-nav button span{margin-right:8px;color:#91a1b6}
+.marketing-nav button:hover{color:#172b48}
+.marketing-nav button[aria-current="true"]{color:#172b48;border-color:#2f83f6}
+.marketing-nav button[aria-current="true"] span{color:#2f83f6}
+.marketing-track{position:relative;display:flex;width:100%;height:100svh;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;touch-action:pan-x pan-y;cursor:grab}
+.marketing-track::-webkit-scrollbar{display:none}
+.marketing-track.is-dragging{scroll-snap-type:none;cursor:grabbing;user-select:none}
+.marketing-card{position:relative;flex:0 0 100%;width:100%;height:100%;min-width:0;display:grid;grid-template-columns:44% 56%;grid-template-rows:minmax(0,1fr);scroll-snap-align:start;scroll-snap-stop:always;background:#fff;color:#172b48;box-sizing:border-box;padding:0;overflow:hidden}
+.marketing-card:before,.marketing-card:after{display:none}
+.marketing-backdrop{grid-column:2;grid-row:1;width:100%;height:100%;min-height:0;min-width:0;display:block;object-fit:cover;pointer-events:none;user-select:none}
+.discount-card .marketing-backdrop{object-position:66% center}
+.voucher-card .marketing-backdrop{object-position:55% center}
+.comarketing-card .marketing-backdrop{object-position:73% center}
+.ecosystem-card .marketing-backdrop{object-position:62% center}
+.review-card .marketing-backdrop{object-position:65% center}
+.marketing-reading{grid-column:1;grid-row:1;min-width:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#aebed0 transparent;padding:clamp(32px,5vh,64px) clamp(28px,3.5vw,66px);box-sizing:border-box;align-self:stretch;align-content:center}
+.card-meta{margin:0 0 22px;color:#4774a2;letter-spacing:1.5px;line-height:1.4}
+.card-meta b{font-size:14px;font-weight:600}
+.card-meta>span{display:none}
+.marketing-card h3{margin:0 0 30px;font-size:clamp(38px,3.2vw,60px);font-weight:600;line-height:1.1;letter-spacing:-1.8px;color:#172b48;text-wrap:balance}
+.marketing-split{width:100%;min-width:0}
+.marketing-card .reading-points{list-style:none;display:grid;gap:0;margin:0;padding:0}
+.marketing-card .reading-points li{display:block;padding:13px 0;font-size:26px;line-height:1.4;border-bottom:1px solid #dce4ee}
+.reading-points li b{display:block;color:#172b48;font-weight:600;margin-bottom:4px}
+.reading-points li span{color:#53677f}
+.partner-role{margin:0;padding:16px 0;border-bottom:1px solid #dce4ee}
+.partner-role b{display:block;margin-bottom:5px;font-size:26px;line-height:1.4;font-weight:600;color:#172b48}
+.partner-role p{margin:0;font-size:26px;line-height:1.4;color:#53677f}
+.touchpoint-flow{display:none}
+.marketing-card .card-takeaway{margin:24px 0 0;padding:0 0 0 14px;border-left:3px solid #2f83f6;font-size:26px;line-height:1.4;font-weight:600;color:#285b95}
+.marketing-card details{width:100%;max-width:100%;margin-top:24px}
+.marketing-card summary{display:inline-flex;align-items:center;gap:14px;list-style:none;cursor:pointer;color:#285b95;font-size:17px;font-weight:600;line-height:1.5;padding:4px 0 8px;border-bottom:1px solid #bbccdf}
+.marketing-card summary::-webkit-details-marker{display:none}
+.marketing-card summary:after{content:'+';display:inline-block;transition:transform .36s cubic-bezier(.22,1,.36,1)}
+.marketing-card details[data-expanded="true"] summary:after{transform:rotate(45deg)}
+.marketing-card .example-copy{margin-top:12px;padding:0 12px 0 0;max-height:150px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#aebed0 transparent;font-size:18px;line-height:1.6;color:#53677f;background:none;border:0;box-shadow:none}
+.marketing-card .example-copy p{margin:0}
+.review-list{display:grid;gap:0}
+.review-list p{display:grid;grid-template-columns:1fr 25px 1fr;align-items:center;gap:12px;margin:0;padding:19px 0;border-bottom:1px solid #dce4ee;font-size:26px;line-height:1.4;color:#53677f}
+.review-list p b{font-size:32px;font-weight:400;color:#2f83f6;text-align:center}
+.review-list p span:last-child{color:#172b48}
+.marketing-swipe :is(button,summary,[tabindex]):focus-visible{outline:3px solid #2f83f6;outline-offset:5px}
+@media(max-width:1100px){
+ .marketing-card{grid-template-columns:48% 52%}
+ .marketing-reading{padding:32px 28px;align-content:start}
+ .marketing-card h3{font-size:40px}
+ .marketing-nav{gap:22px}
+ .marketing-nav button{font-size:14px}
+ .review-list p{grid-template-columns:1fr;font-size:26px;gap:3px}
+ .review-list p b{text-align:left;font-size:26px}
+}
+@media(max-width:700px){
+ .marketing-heading{padding-top:28px;padding-bottom:16px}
+ .marketing-heading h2{font-size:28px}
+ .marketing-heading p{font-size:12px}
+ .marketing-nav{padding-bottom:20px}
+ .marketing-card{display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain}
+ .marketing-backdrop{order:0;width:100%;height:34svh;min-height:230px;flex-shrink:0;object-position:center}
+ .marketing-reading{order:1;overflow:visible;flex:1 0 auto;padding:30px 24px 40px}
+ .marketing-card h3{font-size:38px;margin-bottom:24px}
+ .review-list p{grid-template-columns:1fr 25px 1fr;font-size:26px;gap:10px}
+ .review-list p b{text-align:center}
+}
+@media(prefers-reduced-motion:reduce){.marketing-swipe *{transition:none!important;scroll-behavior:auto!important}}
+@media print{
+ .marketing-swipe{width:100%;left:0;transform:none;margin:30px 0;overflow:visible}
+ .marketing-heading,.marketing-nav{display:none}
+ .marketing-track{display:block;height:auto;overflow:visible}
+ .marketing-card{height:240mm;break-after:page;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+ .marketing-reading{overflow:visible;padding:25px}
+}
+
+
+.marketing-card .reading-points li,.partner-role,.review-list p,.marketing-card summary{border-bottom:0}
+/* Drag and settling use one animation owner; native snap resumes at rest. */
+.marketing-track{scroll-behavior:auto}
+.marketing-track.is-settling,.marketing-track.is-dragging{scroll-snap-type:none!important;scroll-behavior:auto!important;overflow-anchor:none}
+.marketing-track.is-dragging,.marketing-track.is-dragging *{user-select:none;-webkit-user-select:none;cursor:grabbing}
