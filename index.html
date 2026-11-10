@@ -1,5 +1,32 @@
 <!doctype html>
-<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#fff6f8"><title>Coffee Quiz Time!</title><link rel="stylesheet" href="css/fonts.css"><link rel="stylesheet" href="css/coffee-quiz.css"></head><body class="quiz-page"><main><section class="coffee-quiz" id="coffee-quiz" aria-labelledby="coffee-quiz-title">
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#fff6f8"><title>Coffee Quiz Time!</title><link rel="stylesheet" href="css/fonts.css"><link rel="stylesheet" href="css/coffee-quiz.css"><link rel="stylesheet" href="css/quiz-entry.css"></head><body class="quiz-page"><main>
+<section class="quiz-entry" aria-labelledby="entry-title" hidden>
+  <div class="entry-backdrop" aria-hidden="true"><span class="backdrop-stitch"></span><img class="backdrop-cup" src="assets/icons/quiz/sweet-cup.svg" alt=""><img class="backdrop-receipt" src="assets/icons/quiz/receipt.svg" alt=""><img class="backdrop-voucher" src="assets/icons/quiz/voucher.svg" alt=""><img class="backdrop-flower" src="assets/icons/quiz/daisy.svg" alt=""><img class="backdrop-ribbon" src="assets/icons/quiz/ribbon.svg" alt=""><img class="backdrop-beans" src="assets/icons/quiz/coffee-beans.svg" alt=""><span class="backdrop-doodle backdrop-doodle-one">✧ · ✦</span><span class="backdrop-doodle backdrop-doodle-two">♡</span></div>
+  <div class="entry-scene">
+    <div class="entry-confetti-decor" aria-hidden="true"><img src="assets/icons/quiz/bow.svg" alt=""><img src="assets/icons/quiz/coffee-beans.svg" alt=""><img src="assets/icons/quiz/daisy.svg" alt=""><img src="assets/icons/quiz/heart.svg" alt=""><img src="assets/icons/quiz/highlands-matcha.svg" alt=""><img src="assets/icons/quiz/sparkles.svg" alt=""></div>
+    <img class="entry-star" src="assets/icons/quiz/lucky-star.svg" alt="">
+    <button class="entry-ticket" type="button" aria-label="Quét vé và bắt đầu quiz">
+      <span class="entry-ticket-main">
+        <span class="entry-foil-border" aria-hidden="true"></span><span class="entry-ticket-stars" aria-hidden="true">✦ · ✧ · ✦</span>
+        <img class="entry-logo" src="assets/images/highlands-wheel-logo.png" alt="Highlands Coffee">
+        <span class="entry-coffee">Coffee</span><span class="entry-title" id="entry-title">Quiz Time!</span>
+        <span class="entry-subtitle">Một chiếc vé, ba câu hỏi</span>
+        <span class="entry-cta">Chạm để quét vé <span aria-hidden="true">↗</span></span>
+        <img class="entry-latte" src="assets/icons/quiz/highlands-latte.svg" alt="">
+        <span class="entry-seal" aria-hidden="true">✦<br>COFFEE<br>CLUB</span>
+        <span class="entry-souvenirs" aria-hidden="true"><img src="assets/icons/quiz/coffee-beans.svg" alt=""><img src="assets/icons/quiz/bow.svg" alt=""><img src="assets/icons/quiz/heart.svg" alt=""><img src="assets/icons/quiz/lucky-star.svg" alt=""></span>
+        <img class="entry-flower-sticker" src="assets/icons/quiz/daisy.svg" alt="" aria-hidden="true">
+        <span class="entry-mini-sparkles" aria-hidden="true">✧ · ✦</span>
+      </span>
+      <span class="entry-ticket-stub" aria-hidden="true"><span class="entry-stub-label">COFFEE PASS</span><span class="entry-barcode"></span><span class="entry-stub-number">HIGHLANDS × MOMO</span></span>
+      <span class="entry-stamp" aria-hidden="true">MỜI BẠN VÀO!<br>✓</span>
+    </button>
+    <img class="entry-pig" src="assets/icons/quiz/momo-pig-sticker.svg" alt="">
+    <div class="entry-terminal" aria-hidden="true"><div class="entry-terminal-top"><span class="entry-terminal-brand">Highlands Pay</span><div class="entry-terminal-screen"><span class="entry-scan-icon">⌁</span><span class="entry-terminal-message">Sẵn sàng quét</span><span class="entry-scan-line"></span></div><div class="entry-terminal-keys"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="entry-terminal-base"></div></div>
+  </div>
+  <p class="entry-status" role="status" aria-live="polite">Vé đã sẵn sàng. Còn bạn thì sao?</p>
+</section>
+<section class="coffee-quiz" id="coffee-quiz" aria-labelledby="coffee-quiz-title">
   <header class="quiz-heading"><img src="assets/icons/quiz/sweet-cup.svg" class="quiz-title-cup" alt="" aria-hidden="true"><h1 id="coffee-quiz-title"><span class="quiz-title-coffee">Coffee</span><span class="quiz-title-main">Quiz Time!</span></h1><img src="assets/icons/quiz/lucky-star.svg" class="quiz-title-star" alt="" aria-hidden="true"></header>
   <div class="quiz-top">
     <div class="quiz-highlands"><img class="quiz-highlands-mark" src="assets/images/highlands-wheel-logo.png" alt="Highlands Coffee" width="149" height="119"><i class="quiz-tape quiz-tape-one" aria-hidden="true"></i><i class="quiz-tape quiz-tape-two" aria-hidden="true"></i></div>
@@ -30,4 +57,4 @@
     <div class="quiz-result-actions"><button class="quiz-action quiz-secondary" type="button" data-quiz-retry>Chơi lại</button><a class="quiz-action" href="chuong-1.html" data-quiz-lesson>Vào bài học →</a></div>
   </div>
   <noscript><p style="font-size:26px">Bật JavaScript để chơi quiz tương tác.</p></noscript>
-</section></main><script src="js/coffee-quiz.js"></script></body></html>
+</section></main><script src="js/coffee-quiz.js"></script><script src="js/quiz-swipe.js"></script></body></html>

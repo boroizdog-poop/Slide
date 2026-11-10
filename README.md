@@ -618,3 +618,70 @@ Mốc hành trình đã đưa từ 50% lên 28% chiều cao mỗi trạm. JS đo
 - Quiz là index.html, tự hiển thị khi mở website. Nút Vào bài học dẫn đến chuong-1.html.
 - Chương 2 chuyển sang chuong-2.html; đã cập nhật liên kết từ chương 1 và trang chuyển hướng boi-canh.html.
 
+
+### Bìa vé mở đầu quiz
+- index.html mở bằng vé Highlands màu kem/đỏ trên nền pastel, dùng logo và sticker có sẵn. Bấm hoặc Enter/Space để vé trượt qua máy quét minh họa, hiện xác nhận, đóng dấu rồi mở thành khung câu hỏi; không có giao dịch thanh toán thật.
+- CSS/JS: css/quiz-entry.css và js/quiz-entry.js. Giữ nguyên câu hỏi, chấm điểm, chơi lại và liên kết vào chương 1. Hỗ trợ giảm chuyển động, chuyển focus đến câu hỏi; khi không có JavaScript, hiện quiz và thông báo có sẵn.
+- Đã kiểm tra desktop 1366x768, 1024x670, mobile 390x844, chế độ giảm chuyển động và chấm đáp án sau chuyển cảnh. Đã sửa dấu đóng ẩn gây tràn ngang mobile. Không bổ sung ảnh tải mới.
+
+
+### Hiệu ứng chiều sâu cho vé quiz
+- Giữ nguyên bố cục, màu, nội dung và asset. Thêm nghiêng theo chuột trên desktop, chuyển động perspective/translate3d/rotateX/rotateY khi đưa vé qua máy quét và mở thành câu hỏi, bóng thay đổi theo độ cao; máy phản hồi nhẹ khi nhận vé.
+- Đã kiểm tra transform 3D thực sự trong chuyển cảnh, vào đủ bốn đáp án trên desktop/mobile, không tràn ngang sau chuyển cảnh; giảm chuyển động bỏ hiệu ứng như trước.
+
+
+### Vé quiz và chuyển cảnh lấy cảm hứng Warp
+- Tham khảo hình và mô tả vé bay vào vùng sáng, ánh màu trên vé của Honkai: Star Rail: https://twinfinite.net/guides/difference-between-4-star-5-star-pulls-in-honkai-star-rail/ . Không dùng asset hoặc video game trong website.
+- Thêm viền nhũ, dấu Coffee Club và sticker từ bộ tài nguyên đang có. Sau khi quét, vé bay xoay qua đường hầm sao canvas, cửa sáng mở ra câu hỏi. Có nút Bỏ qua, hỗ trợ giảm chuyển động và dọn animation/canvas sau chuyển cảnh. Code ở js/quiz-warp.js.
+- Kiểm tra desktop/mobile: ảnh đủ, không tràn ngang, luồng xem hết/Bỏ qua/giảm chuyển động đều vào bốn đáp án và chấm đúng; đã xem ảnh bìa và cảnh bay.
+
+
+### Vé bay như giấy mềm trong không gian
+- Thay tấm vé phẳng của cảnh Warp bằng bề mặt gồm 30 dải giấy desktop / 22 dải mobile, nối theo đường cong liên tục; độ cong và ánh sáng cập nhật theo thời gian. Mặt trước giữ thiết kế vé, mặt sau giấy kem riêng, có độ dày rất mỏng.
+- Camera tương đối thay đổi góc ngẩng/cúi và xoay qua mặt sau, rồi vé bay xa theo chiều sâu. Bỏ filter/opacity trên nhóm giấy để không làm phẳng các lớp 3D.
+- Đã xem render desktop/mobile và kiểm tra facet transform 3D khác nhau, kết thúc vào bốn đáp án, không còn overlay và không tràn ngang. Giữ nguyên bìa tĩnh, nội dung quiz và nút bỏ qua.
+
+
+### Bìa quiz — quẹt giấy ngay trên bàn pastel
+- Thay cảnh Warp/đường hầm bằng cảnh tại chỗ: bấm vé, máy thanh toán có tai và mặt biểu cảm nhô lên từ dưới, giấy cong kéo tới/khựng/lùi nhẹ rồi quẹt tiếp. Sticker bắn từ vùng màn hình đọc mã theo ba nhịp, máy chuyển mặt vui khi nhận vé; zoom vào giấy kem rồi hiện câu hỏi.
+- index.html dùng js/quiz-swipe.js. Bỏ script Warp cũ. Giữ thiết kế vé, câu hỏi, chấm điểm, nút vào bài học; hỗ trợ Bỏ qua, giảm chuyển động, dọn animation và focus câu hỏi.
+- Đã kiểm tra desktop 1366x768, mobile 390x844; xem ảnh quẹt giấy và mặt máy, xác nhận sticker phát ra, xem hết/bỏ qua/giảm chuyển động đều vào bốn đáp án, chấm đúng và không tràn ngang sau cảnh.
+
+
+### Quẹt có lực theo video minh họa người dùng
+- Đã xem các khung video 1794280706454_50213259398868263_4508743094532961031.mp4, đặc biệt đoạn 9–12 giây: giấy bị ép và kéo chậm theo mặt tiếp xúc. Không đưa video cá nhân vào assets.
+- Tăng máy quét lên 325px desktop/215px mobile; zoom đồng thời cả vé và máy 1.28x/1.17x vào vùng tiếp xúc. Nhịp quẹt chậm 3.4 giây, ghì ở giữa rồi trượt thoát, độ cong chịu lực thay vì vẫy theo sóng.
+- Thêm khe đọc mã; sticker phun liên tục mỗi 85ms từ khe, bay ngược hướng kéo theo quỹ đạo trọng lực như tia lửa; kết thúc mới bung thêm một đợt và zoom giấy sang câu hỏi.
+- Kiểm tra desktop/mobile, xem ảnh lúc quét; xác nhận zoom cảnh, hạt phun liên tục, xem hết/bỏ qua/giảm chuyển động đều vào đủ bốn đáp án và không tràn ngang sau chuyển cảnh.
+
+
+### Khe ngang có che khuất thật
+- Tách thân máy thành vỏ sau và mặt trước đặc, đặt giấy giữa hai lớp; clip theo vị trí khe để mặt trước che phần giấy đi vào máy. Camera giữ thứ tự lớp tách biệt, bề mặt giấy vẫn uốn 3D bên trong nhóm giấy.
+- Khe kéo ngang hết chiều rộng máy, có lòng tối, mép trên và gờ dưới; máy gần nằm ngang hơn. Giữ nhịp chậm có lực, zoom, sticker và chuyển câu hỏi.
+- Đã xem ảnh quẹt desktop/mobile, kiểm tra lớp vỏ clip đúng vị trí và luồng kết thúc đủ bốn đáp án, không còn overlay hoặc tràn ngang.
+
+
+### Nút quét nằm gọn và chuyển động quẹt tự nhiên
+- Cân lại chiều cao vé, cỡ tiêu đề, khoảng đệm và nút mời quét; giữ chữ nút 26px, khoảng trống dưới nút 26–30px, không dùng che tràn để giấu lỗi.
+- Tham khảo thao tác một hướng liên tục, tốc độ đều theo hướng dẫn Ingenico Lane 3600: https://ingenico.com/sites/default/files/resource-document/2024-01/Users%20Guide%20Lane%2036000%20Jan%202024%20update%20.pdf .
+- Giảm độ cong về mức rất nhẹ, bỏ rung/lắc/ghì cố ý; vé bám theo góc khe và trượt một lượt gần đều, nhấc ra sau xác nhận. Giữ che khuất của khe, máy cute, zoom và sticker.
+- Đã xem render và kiểm tra 1918x946, 1366x768, 1024x670, 390x844; nút không tràn, không tràn ngang, xem hết/bỏ qua/giảm chuyển động và chấm đáp án đều đạt.
+
+
+### Rung tiếp xúc, vé nhiều sticker và camera đổi góc
+- Giữ đường quẹt thẳng và khe che giấy, thêm lại hai nhịp rung ngắn theo tiếp xúc ở ~1.7s và ~3.25s. Camera chung cho cả vé và vỏ trước/sau máy, đổi góc X/Y từ chếch trái sang phải và zoom 1.36x desktop/1.22x mobile.
+- Trang trí thêm dải sticker hạt cà phê, nơ, tim, sao, hoa và tia sáng ở khoảng trống của vé; giữ khoảng đệm nút 26–30px và chữ nút 26px.
+- Đã xem ảnh desktop/mobile và kiểm tra 1366x768, 1024x670, 390x844: camera có phối cảnh X/Y, ảnh đủ, nút không tràn; xem hết/bỏ qua/giảm chuyển động đều vào đủ bốn đáp án, không tràn ngang sau cảnh.
+
+
+### Trang trí nền hồng và kiểm tra trạng thái Git
+- Thêm đường may đứt nét quanh nền hồng, sticker cốc, hóa đơn, voucher, hoa, ribbon và nét vẽ tim/sao ở khoảng trống ngoài vé. Trang trí không bắt click và có vị trí riêng trên mobile.
+- Đã xem render desktop/mobile: ảnh đủ, không tràn ngang, nút quét còn 30px khoảng đệm. Kiểm tra cú pháp hai script quiz và tham chiếu file HTML/CSS đều đạt; git diff --check không báo lỗi khoảng trắng.
+- M = file đã chỉnh sửa so với commit gần nhất; U = file mới chưa được Git theo dõi. Đây là trạng thái Git, không phải lỗi chạy. Chưa tự stage hoặc commit.
+
+
+### Ánh loang và vé nghiêng theo chuột
+- Khi rê chuột trên desktop, tâm ánh ngọc trai hồng/kem/xanh nhạt theo vị trí con trỏ; vé nhấc và nghiêng nhẹ theo trục X/Y. Rời vé hoặc mất focus thì trở về góc ban đầu.
+- Dùng requestAnimationFrame, chỉ kích hoạt cho chuột chính xác có hover; giảm chuyển động tắt hiệu ứng. Khi bấm quét, reset hover trước khi tạo cảnh để không ảnh hưởng khe máy hay bản sao giấy.
+- Đã kiểm tra cú pháp JavaScript và git diff --check; không đổi nội dung hoặc bố cục quiz.
+
