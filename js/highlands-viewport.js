@@ -1,7 +1,7 @@
 ﻿/* Keep the viewed slide stable across F11 and viewport layout changes. */
 (() => {
  'use strict';
- const selector='.highlands-insight-slide,.highlands-cover,.history-stage,.highlands-products,.hero,.chapter-one-slide,[data-number-slide],.continuation,.marketing-swipe,.case-intro,.case-brand,.case-mechanism,.case-analysis,.case-comparison,.evaluation-header,.evaluation-block';
+ const selector='.report-cover,.highlands-insight-slide,.highlands-cover,.history-stage,.highlands-products,.hero,.chapter-one-slide,[data-number-slide],.continuation,.marketing-swipe,.case-intro,.case-brand,.case-mechanism,.case-analysis,.case-comparison,.evaluation-header,.evaluation-block';
  const slides=[...document.querySelectorAll(selector)];
  if(!slides.length)return;
  let width=innerWidth,height=innerHeight,anchor=null,locked=false,timers=[];
@@ -10,7 +10,7 @@
    const visible=slides.filter(el=>el.getClientRects().length&&getComputedStyle(el).position!=='absolute');
    let best=null,area=0;
    for(const el of visible){const r=el.getBoundingClientRect();const overlap=Math.max(0,Math.min(height,r.bottom)-Math.max(0,r.top));if(overlap>area){best=el;area=overlap}}
-   if(!best)return;
+   if(!best){anchor=null;return;}
    const r=best.getBoundingClientRect();
    // Preserve the current offset within this slide, including any gap above it.
    anchor={el:best,point:-r.top/Math.max(1,r.height)};
