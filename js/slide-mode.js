@@ -17,7 +17,7 @@
   const controls = document.createElement('nav');
   controls.className = 'slide-controls';
   controls.setAttribute('aria-label', 'Chuyển slide');
-  controls.innerHTML = '<button type="button" aria-label="Slide trước">↑</button><span class="slide-counter"></span><button type="button" aria-label="Slide tiếp theo">↓</button>';
+  controls.innerHTML = '<button type="button" aria-label="Slide trước"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20V4m-6 6 6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="slide-counter"></span><button type="button" aria-label="Slide tiếp theo"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v16m-6-6 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>';
   const [previous, next] = controls.querySelectorAll('button');
   const counter = controls.querySelector('.slide-counter');
   document.body.append(controls);

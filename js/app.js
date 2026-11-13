@@ -102,7 +102,7 @@
         return;
       }
       imageTransition = next.animate([{opacity: 0}, {opacity: 1}], {
-        duration: 650, easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
+        duration: 280, easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
       });
       imageTransition.finished.then(() => previous.remove()).catch(() => {});
     } catch {

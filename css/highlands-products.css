@@ -113,3 +113,6 @@ body:has(.highlands-products){overflow-anchor:none}
 
 /* Remove the decorative wheel silhouette behind the products. */
 .wheel-rim{display:none}
+
+/* Centre vector arrows independently of font metrics. */
+.wheel-controls button svg{display:block;width:28px;height:28px;pointer-events:none}

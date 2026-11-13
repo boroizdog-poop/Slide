@@ -60,6 +60,11 @@
     let burst1=false,burst2=false,burst3=false,revealed=false,lastSpray=0,particleIndex=0;
     function burst(n,final=false){const area=terminal.querySelector('.swipe-contact-rail').getBoundingClientRect(),x=area.left+area.width*(.35+Math.random()*.25),y=area.top+area.height*.5;for(let i=0;i<n;i++){const img=document.createElement('img');img.className='swipe-particle';img.src='assets/icons/quiz/'+assets[particleIndex++%assets.length];img.alt='';img.style.left=x+'px';img.style.top=y+'px';img.style.width=(mobile?25:33)+Math.random()*14+'px';layer.append(img);const dx=(final?(Math.random()-.5)*2:-.45-Math.random())*(mobile?200:390),rise=45+Math.random()*(final?180:110),drop=110+Math.random()*180,turn=(Math.random()-.5)*220;const frames=Array.from({length:41},(_,j)=>{const p=j/40;return{offset:p,transform:`translate(calc(-50% + ${dx*p}px),calc(-50% + ${-4*rise*p*(1-p)+drop*p*p}px)) rotate(${turn*p}deg) scale(${.5+.5*Math.min(1,p*7)})`,opacity:Math.min(1,p*10)*Math.min(1,(1-p)*4)}});img.animate(frames,{duration:1100+Math.random()*450,easing:'linear',fill:'both'}).finished.then(()=>img.remove()).catch(()=>{});}}
     const ease=t=>{t=Math.max(0,Math.min(1,t));return t*t*(3-2*t);},mix=(a,b,t)=>a+(b-a)*t;
+    // A separate welcome moment after the scan.
+    const welcome=document.createElement('div');welcome.className='swipe-welcome';welcome.setAttribute('aria-hidden','true');
+    welcome.innerHTML='<div class="swipe-welcome-note"><img src="assets/icons/quiz/bow.svg" alt=""><span>V\u00e9 xinh \u0111\u00e3 s\u1eb5n s\u00e0ng!</span><strong>M\u00ecnh v\u00e0o ch\u01a1i nh\u00e9 \u2661</strong></div>';
+    ['daisy.svg','heart.svg','lucky-star.svg','bow.svg','heart.svg','daisy.svg'].forEach((asset,i)=>{const sticker=document.createElement('img');sticker.src='assets/icons/quiz/'+asset;sticker.alt='';sticker.className='swipe-welcome-sticker';const angle=i*Math.PI/3-.3;sticker.style.setProperty('--dx',Math.cos(angle)*(mobile?135:285)+'px');sticker.style.setProperty('--dy',Math.sin(angle)*(mobile?195:225)+'px');sticker.style.setProperty('--turn',(i%2?16:-16)+'deg');welcome.append(sticker);});
+    layer.append(welcome);
     let begin=null;
     function draw(now){
       if(done)return;if(begin===null)begin=now;const t=now-begin;
@@ -78,13 +83,14 @@
       if(t>3000&&!burst2){burst2=true;msg.textContent='Đang xác nhận…';}
       if(contact&&t-lastSpray>85){lastSpray=t;burst(mobile?3:4);}
       if(t>=4800&&!burst3){burst3=true;layer.classList.remove('is-reading');layer.classList.add('is-scanned');msg.textContent='Tít! Hợp lệ ✓';caption.textContent='Quét được rồi! Mời bạn vào ☕';burst(26,true);}
-      if(t>=5300){const p=ease((t-5300)/1000);x=mix(aimX+165,w*.5,p);y=mix(aimY+(aimX+165-machineX)*slotSlope-38,h*.5,p);rx=0;ry=0;rz=mix(-5,0,p);s=mix(scale*1.05,Math.max(w/width,h/height)*1.5,p);z=mix(0,230,p);strength=.02*(1-p);terminal.style.opacity=String(1-p);caption.style.opacity=String(1-p);cream.style.opacity=String(ease((t-5830)/470));}
+      if(t>=5300){const p=ease((t-5300)/650);x=aimX+165;y=aimY+(x-machineX)*slotSlope-38-60*p;rx=0;ry=0;rz=mix(-5,5,p);s=scale*1.05*(1-.25*p);strength=.02*(1-p);paper.style.opacity=String(1-p);terminal.style.opacity=String(1-p);caption.style.opacity=String(1-p);cream.style.opacity=String(p);welcome.classList.add('is-visible');}
+      if(t>=6150)welcome.classList.add('is-opening');
       bend(t,strength);paper.style.transform=`translate3d(${x}px,${y}px,${z}px) rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg) scale(${s})`;
       terminal.style.transform=`translate(-50%,-25%) translateY(${machineLift}px) rotateZ(${machineTilt}deg)`;terminal.style.opacity=t<5300?String(enter):terminal.style.opacity;
       rear.style.transform=terminal.style.transform;rear.style.opacity=terminal.style.opacity;
-      if(t>=6300&&!revealed){revealed=true;cover.hidden=true;quiz.hidden=false;window.scrollTo(0,0);camera.style.visibility='hidden';layer.style.background='transparent';layer.querySelector('.swipe-skip').hidden=true;}
-      if(t>=6300)cream.style.opacity=String(1-ease((t-6300)/500));
-      if(t>=6800){finish();return;}frame=requestAnimationFrame(draw);
+      if(t>=6350&&!revealed){revealed=true;cover.hidden=true;quiz.hidden=false;window.scrollTo(0,0);camera.style.visibility='hidden';layer.style.background='transparent';layer.querySelector('.swipe-skip').hidden=true;quiz.animate([{opacity:0,transform:'translateY(18px) scale(.98)'},{opacity:1,transform:'none'}],{duration:550,easing:'cubic-bezier(.2,.7,.3,1)'});}
+      if(t>=6350){cream.style.opacity=String(1-ease((t-6350)/550));welcome.style.opacity=String(1-ease((t-6350)/400));}
+      if(t>=6950){finish();return;}frame=requestAnimationFrame(draw);
     }
     frame=requestAnimationFrame(draw);
   }

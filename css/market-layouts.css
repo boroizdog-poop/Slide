@@ -16,3 +16,14 @@
 .market-redesign.continuation{padding-top:calc(clamp(28px,4vw,60px) + 28px)}
 @media screen and (min-width:901px){.is-presentation-fullscreen .market-redesign.continuation{padding-top:calc(clamp(28px,4vh,54px) + 28px)}}
 @media(max-width:700px){.market-redesign.continuation{padding-top:50px}}
+
+/* Partnership content spans two consecutive slides. */
+.partnership-design .partnership-track{margin-block:24px}
+.partnership-design .partnership-track li{padding-block:16px}
+.partnership-design .partnership-track li>span{margin-bottom:10px}
+.partnership-design .partnership-ledger{padding-block:18px}
+.partnership-design .partnership-ledger-title{margin-bottom:8px}
+.partnership-design .partnership-ledger dl>div{padding-block:10px}
+.partnership-design .partnership-track p,.partnership-design .partnership-ledger dt,.partnership-design .partnership-ledger dd,.partnership-implementation .partnership-tools ul{font-size:26px}
+.partnership-implementation .partnership-tools{margin-top:24px}
+.partnership-implementation .partnership-tools figure{height:clamp(180px,30svh,265px)}

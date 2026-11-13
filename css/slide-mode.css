@@ -18,7 +18,8 @@
   .evaluation-conclusion{min-height:60svh}
 }
 .slide-controls{position:fixed;right:14px;bottom:18px;z-index:40;display:flex;align-items:center;gap:5px;background:#ffffffed;border:1px solid #d4e2ed;border-radius:40px;padding:5px;box-shadow:0 4px 20px #24446215;backdrop-filter:blur(10px)}
-.slide-controls button{width:34px;height:34px;border-radius:50%;background:#edf5fb;color:#285c83;font-size:20px;line-height:1}
+.slide-controls button{width:34px;height:34px;border:0;padding:0;display:grid;place-items:center;flex-shrink:0;border-radius:50%;background:#edf5fb;color:#285c83;font-size:20px;line-height:1}
+.slide-controls button svg{display:block;width:22px;height:22px;pointer-events:none}
 .slide-controls button:hover{background:#d7e9f7}.slide-controls button:disabled{opacity:.35;cursor:default}
 .slide-counter{min-width:68px;text-align:center;color:#456276;font-size:13px;font-weight:600;font-variant-numeric:tabular-nums}
 @media(max-width:900px){.slide-controls{display:none}}
