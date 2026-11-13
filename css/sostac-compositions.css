@@ -303,6 +303,10 @@
  }
  .is-presentation-fullscreen .tactics-stage:is([data-tactics-beat="2"],[data-tactics-beat="3"]) .tactics-floating-card .pilot-cups{
   height:clamp(175px,calc(100svh - 535px),205px);
+  width:100%;
+ }
+ .is-presentation-fullscreen .tactics-stage:is([data-tactics-beat="2"],[data-tactics-beat="3"]) .tactics-floating-card{
+  width:clamp(420px,24vw,460px);
  }
 }
 @media(min-width:901px) and (max-height:720px){
