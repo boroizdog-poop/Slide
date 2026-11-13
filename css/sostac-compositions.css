@@ -270,7 +270,7 @@
  .tactics-stage{height:min(580px,calc(100svh - 240px))}
  .tactics-stage:before{inset:8px 0 4px}
  .tactics-stage .tactics-phone{right:9%;border-radius:34px}
- .tactics-stage[data-tactics-beat="0"] .tactics-floating-card,.tactics-stage[data-tactics-beat="1"] .tactics-floating-card{width:clamp(154px,calc((100svh - 240px) * .461914 - 32px),236px);right:calc(9% + 16px);top:148px;padding:14px 12px}
+ .tactics-stage[data-tactics-beat="0"] .tactics-floating-card,.tactics-stage[data-tactics-beat="1"] .tactics-floating-card{width:clamp(154px,calc((100svh - 240px) * .461914 - 32px),236px);right:calc(9% + 16px);top:min(148px,max(24px,calc(100% - 310px)));padding:14px 12px}
  .tactics-stage[data-tactics-beat="0"] .tactics-floating-card .pilot-cups,.tactics-stage[data-tactics-beat="1"] .tactics-floating-card .pilot-cups{width:200px;height:145px;max-width:100%}
  .tactics-stage[data-tactics-beat="2"] .tactics-floating-card,.tactics-stage[data-tactics-beat="3"] .tactics-floating-card{width:400px;right:16%;top:72px;padding:24px}
  .tactics-stage[data-tactics-beat="2"] .tactics-floating-card .pilot-cups,.tactics-stage[data-tactics-beat="3"] .tactics-floating-card .pilot-cups{width:295px;height:225px;max-width:100%}
