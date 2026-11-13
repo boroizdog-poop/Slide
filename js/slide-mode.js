@@ -71,6 +71,14 @@
     const base = targetSlide ? available.indexOf(targetSlide) : current;
     const target = Math.max(0, Math.min(available.length - 1, base + direction));
     const slide = available[target];
+    // The chapter cover includes the page header and its surrounding backdrop.
+    // Returning to it should reproduce the opening viewport, not crop the header.
+    if (document.documentElement.classList.contains('is-presentation-fullscreen') && slide.matches('.hero') && slide.closest('.page')?.querySelector(':scope > .header')) {
+      const page = slide.closest('.page');
+      const gap = parseFloat(getComputedStyle(page).marginTop) || 0;
+      window.presentationScrollTo(page.getBoundingClientRect().top + scrollY - gap, slide);
+      return;
+    }
     const offset = parseFloat(getComputedStyle(slide).scrollMarginTop) || 0;
     const bounds = slide.getBoundingClientRect();
     // Center this compact data slide when it fits; top-align on shorter screens.

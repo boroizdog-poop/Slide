@@ -18,6 +18,12 @@
  function restore(){
    if(!anchor||!anchor.el.isConnected)return;
    const r=anchor.el.getBoundingClientRect();
+   if(document.documentElement.classList.contains('is-presentation-fullscreen') && anchor.el.matches('.hero') && anchor.point<=0){
+     const page=anchor.el.closest('.page');
+     const gap=parseFloat(getComputedStyle(page).marginTop)||0;
+     scrollTo({top:scrollY+page.getBoundingClientRect().top-gap,behavior:'instant'});
+     return;
+   }
    const top=scrollY+r.top+anchor.point*r.height;
    scrollTo({top,behavior:'instant'});
  }
