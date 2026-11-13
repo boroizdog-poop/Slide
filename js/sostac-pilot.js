@@ -75,7 +75,6 @@
     clearTimeout(tacticsTimer);
     clearTimeout(paymentTimer);
     activeAnimations.forEach(animation => animation.cancel()); activeAnimations = [];
-    pilot.querySelectorAll('[data-tactics-ghost]').forEach(element => element.remove());
   }
   function motion(element, frames, options) {
     if (reduced.matches || !element?.animate) return;
@@ -110,32 +109,7 @@
     const oldStage = pilot.querySelector('.tactics-stage');
     const expanding = animate && oldStage?.dataset.tacticsBeat === '1' && tacticsStep === 2;
     const oldCard = expanding ? pilot.querySelector('.tactics-floating-card').getBoundingClientRect() : null;
-    let departingCard = null;
-    if (expanding && !reduced.matches) {
-      const card = pilot.querySelector('.tactics-floating-card');
-      departingCard = card.cloneNode(true);
-      departingCard.dataset.tacticsGhost = '';
-      departingCard.setAttribute('aria-hidden', 'true');
-      departingCard.tabIndex = -1;
-      for (const selector of ['.tactics-card-brand', '.pilot-cups', '.tactics-card-detail', '.tactics-card-peek']) {
-        const source = card.querySelector(selector);
-        const copy = departingCard.querySelector(selector);
-        const style = getComputedStyle(source);
-        Object.assign(copy.style, {
-          width: style.width, height: style.height, display: style.display,
-          fontSize: style.fontSize, lineHeight: style.lineHeight,
-          whiteSpace: style.whiteSpace, transition: 'none'
-        });
-      }
-      const stageBounds = oldStage.getBoundingClientRect();
-      Object.assign(departingCard.style, {
-        left: `${oldCard.left - stageBounds.left}px`,
-        top: `${oldCard.top - stageBounds.top}px`, right: 'auto',
-        width: `${oldCard.width}px`, height: `${oldCard.height}px`,
-        padding: getComputedStyle(card).padding,
-        transformOrigin: 'top left', transition: 'none', pointerEvents: 'none'
-      });
-    }
+    const oldShadow = oldCard ? getComputedStyle(pilot.querySelector('.tactics-floating-card')).boxShadow : '';
     cancelMotion();
     const stage = pilot.querySelector('.tactics-stage');
     stage.dataset.tacticsBeat = tacticsStep;
@@ -145,23 +119,18 @@
     pilot.querySelector('.tactics-phone').inert = tacticsStep !== 0;
     if (animate) {
       if (oldCard) {
-        const card = pilot.querySelector('.tactics-floating-card'), nextCard = card.getBoundingClientRect();
-        const scale = oldCard.width / nextCard.width;
+        const card = pilot.querySelector('.tactics-floating-card');
+        const nextCard = card.getBoundingClientRect();
         motion(card, [
-          {transform:`translate(${oldCard.left - nextCard.left}px, ${oldCard.top - nextCard.top}px) scale(${scale})`, opacity:0},
-          {opacity:1, offset:.18},
-          {transform:'translate(0, 0) scale(1)', opacity:1}
-        ], {duration:750});
-        if (departingCard) {
-          stage.append(departingCard);
-          const departure = motion(departingCard, [
-            {transform:'translate(0, 0) scale(1)', opacity:1},
-            {opacity:0, offset:.18},
-            {transform:`translate(${nextCard.left - oldCard.left}px, ${nextCard.top - oldCard.top}px) scale(${1 / scale})`, opacity:0}
-          ], {duration:750});
-          departure.finished.then(() => departingCard.remove(), () => departingCard.remove());
-        }
-        motion(pilot.querySelector('.tactics-card-detail'), [{opacity:0},{opacity:1}], {duration:280,delay:470,fill:'both'});
+          {
+            transform:`translate(${oldCard.left - nextCard.left}px, ${oldCard.top - nextCard.top}px) scale(${oldCard.width / nextCard.width}, ${oldCard.height / nextCard.height})`,
+            boxShadow:oldShadow
+          },
+          {transform:'translate(0, 0) scale(1)', boxShadow:getComputedStyle(card).boxShadow}
+        ], {duration:750, easing:'cubic-bezier(.2,.75,.25,1)'});
+        motion(card.querySelector('.tactics-card-detail'), [
+          {opacity:0}, {opacity:1}
+        ], {duration:280, delay:470, fill:'both'});
       }
       if (tacticsStep === 1) motion(pilot.querySelector('.tactics-floating-card'), [{opacity:0,translate:'0 12px'},{opacity:1,translate:'0 0'}],{duration:400,delay:500,fill:'both'});
       if (tacticsStep === 3 || (tacticsStep === 2 && direction < 0)) motion(pilot.querySelector('.tactics-card-detail'), [{opacity:0,translate:`${direction * 35}px 0`},{opacity:1,translate:'0 0'}],{duration:550});

@@ -191,8 +191,8 @@
 .tactics-phone{width:auto;height:100%;aspect-ratio:946/2048;border-width:6px;border-radius:30px;box-sizing:border-box}
 .tactics-home-screen{display:block;width:100%;height:100%;object-fit:contain;background:#fff;transition:opacity .55s}
 .tactics-app-page{position:absolute;inset:0;background:#fff9fc;opacity:0;visibility:hidden;transition:opacity .55s,visibility .55s}
-.tactics-app-page:before{content:'';position:absolute;left:16px;right:16px;bottom:65px;height:50px;background:#f6e8f0;border-radius:14px}
-.tactics-stage[data-tactics-beat="1"] .tactics-app-page:before{content:none}
+.tactics-app-page:before{content:'';position:absolute;left:16px;right:16px;bottom:65px;height:50px;background:#f6e8f0;border-radius:14px;opacity:0;transition:opacity .7s cubic-bezier(.4,0,.2,1)}
+.tactics-stage:is([data-tactics-beat="2"],[data-tactics-beat="3"]) .tactics-app-page:before{opacity:1}
 .tactics-app-page .tactics-app-top{padding:30px 16px 8px}
 .tactics-app-page .tactics-app-label{padding:8px 16px 16px}
 .tactics-offers-hotspot{position:absolute;bottom:2.6%;left:20%;width:20%;height:7%;border:2px solid #a50064;border-radius:12px;background:#a5006412;cursor:pointer;box-shadow:0 0 0 5px #fff8;transition:background .2s}
