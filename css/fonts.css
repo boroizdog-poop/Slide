@@ -1,3 +1,17 @@
+/* Dragging across presentation content should not select text. */
+html body,
+html body * {
+  -webkit-user-select: none !important;
+  user-select: none !important;
+}
+
+html body input,
+html body textarea,
+html body [contenteditable="true"] {
+  -webkit-user-select: text !important;
+  user-select: text !important;
+}
+
 @font-face {
   font-family: 'Inter';
   font-style: normal;

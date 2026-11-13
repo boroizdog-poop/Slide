@@ -5,6 +5,11 @@
  const slides=[...document.querySelectorAll(selector)];
  if(!slides.length)return;
  let width=innerWidth,height=innerHeight,anchor=null,locked=false,timers=[];
+ function syncPresentationFullscreen(){
+   const fillsScreen=Math.abs(innerHeight-screen.height)<=12&&Math.abs(innerWidth-screen.width)<=12;
+   const fullscreen=Boolean(document.fullscreenElement)||matchMedia('(display-mode: fullscreen)').matches||fillsScreen;
+   document.documentElement.classList.toggle('is-presentation-fullscreen',fullscreen);
+ }
  function remember(){
    if(locked||width!==innerWidth||height!==innerHeight)return;
    const visible=slides.filter(el=>el.getClientRects().length&&getComputedStyle(el).position!=='absolute');
@@ -28,6 +33,7 @@
    scrollTo({top,behavior:'instant'});
  }
  function resize(){
+   syncPresentationFullscreen();
    locked=true;timers.forEach(clearTimeout);restore();
    // Other slide fitters and browser fullscreen chrome can settle in separate frames.
    timers=[0,80,200,450].map(ms=>setTimeout(restore,ms));
@@ -40,6 +46,7 @@
  document.addEventListener('fullscreenchange',resize);
  addEventListener('load',remember);document.fonts?.ready.then(remember);
  document.documentElement.style.overflowAnchor='none';
+ syncPresentationFullscreen();
  remember();
 })();
 

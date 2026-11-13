@@ -1,0 +1,22 @@
+const {chromium}=require('./node_modules/playwright');
+const {pathToFileURL}=require('url');
+const path=require('path');
+(async()=>{
+ const b=await chromium.launch({headless:true,executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'});
+ const p=await b.newPage({viewport:{width:1920,height:1008},reducedMotion:'reduce'});
+ await p.goto(pathToFileURL(path.resolve('chuong-3.html')).href+'#sostac-action');
+ await p.locator('.intro-search-result').waitFor({state:'visible'});
+ await p.locator('.intro-search-result').click();
+ await p.waitForFunction(()=>document.querySelector('.space-chat-intro').hidden);
+ await p.locator('.space-ticket').nth(3).click();
+ await p.locator('.tactics-offers-hotspot').click();
+ await p.waitForTimeout(700); console.log(await p.evaluate(()=>{const root=document.documentElement; const phone=document.querySelector('.tactics-phone'); const card=document.querySelector('.tactics-floating-card'); function read(){const s=getComputedStyle(phone),r=phone.getBoundingClientRect(),c=card.getBoundingClientRect(); return {width:r.width,height:r.height,border:s.border,borderRadius:s.borderRadius,cardBottom:c.bottom,navTop:document.querySelector('.tactics-app-nav').getBoundingClientRect().top};} root.classList.remove('is-presentation-fullscreen');const normal=read();root.classList.add('is-presentation-fullscreen');return {normal,fullscreen:read()};}));
+ await p.locator('.sostac-space').screenshot({path:'tmp/sostac-qa/video-match-small.png'});
+ console.log(await p.locator('.tactics-floating-card').evaluate(el=>{const r=el.getBoundingClientRect();const phone=document.querySelector('.tactics-phone').getBoundingClientRect();return {card:{x:r.x,y:r.y,width:r.width,height:r.height},phone:{x:phone.x,y:phone.y,width:phone.width,height:phone.height}}}));
+ await p.locator('.tactics-floating-card').click();
+ await p.locator('.tactics-floating-card').click();
+ await p.waitForTimeout(800);
+ console.log(await p.locator('.tactics-stage').evaluate(el=>({beat:el.dataset.tacticsBeat,background:getComputedStyle(el,':before').backgroundColor,card:getComputedStyle(el.querySelector('.tactics-floating-card')).backgroundColor})));
+ await p.locator('.sostac-space').screenshot({path:'tmp/sostac-qa/video-match-35.png'});
+ await b.close();
+})().catch(e=>{console.error(e);process.exit(1)});
